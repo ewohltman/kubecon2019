@@ -162,7 +162,7 @@ with Envoy, however the fuzz testing is slow to run.
 ## Service Mesh in Kubernetes: It’s Not That Easy
 
 | [Background](https://sched.co/Uxvo) | [Links to slides](slides/EnvoyCon_2019_Lita_Tom.pdf) |
-| ----------------------------------- | ----------------------------------------------------- |
+| ----------------------------------- | ---------------------------------------------------- |
 
 * Speakers
   * Lita Cho, Lyft
@@ -177,5 +177,5 @@ watching for events from `apiserver` for the components moved into Kubernetes
 and the components reaching out to the control-plane to discover the services.
 
 They ran into issues with Kubernetes Pod scale up and down events, as well as
-the order of operations in which sidecars run, so they currently support a
-specific branch of Kubernetes with some fixes they need.
+the order of operations in which sidecars run, so they currently run a patched
+version of Kubernetes with some fixes they need.
