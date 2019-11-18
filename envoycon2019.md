@@ -2,6 +2,9 @@
 
 ## Welcome, Thank You, Growth
 
+| [Background](https://sched.co/UxvJ) |
+| ----------------------------------- |
+
 * Speakers
   * Matt Klein, Lyft
 
@@ -18,9 +21,8 @@ code reviews, documentation, etc.
 
 ## How Spotify Migrated Ingress HTTP Systems to Envoy
 
-[Background](https://sched.co/Uxv2)
-
-[Link to slides](slides/atc_envoycon_2019.pdf)
+| [Background](https://sched.co/Uxv2) | [Link to slides](slides/atc_envoycon_2019.pdf) |
+| ----------------------------------- | ---------------------------------------------- |
 
 * Speakers
   * Alex Sundström, Spotify
@@ -35,7 +37,8 @@ a "big red button" to roll back changes that anyone could hit.
 
 ## Envoy Mobile in Depth: From Server to Multi-platform Library
 
-[Background](https://sched.co/UxvS)
+| [Background](https://sched.co/UxvS) | [Envoy Mobile](https://envoy-mobile.github.io/) | [GitHub](https://github.com/lyft/envoy-mobile) |
+| ----------------------------------- | ----------------------------------------------- | ---------------------------------------------- |
 
 * Speakers
   * Jose Nino, Lyft
@@ -69,3 +72,89 @@ as well as across interfaces like choosing between wifi/cell networks,
 protocols, and IPv4 vs IPv6 for best performance). They also want to implement
 dynamic configuration.
  
+## Envoy’s Using 10GB of Memory and It’s All My Fault!
+
+| [Background](https://sched.co/UxvT) | [Link to slides](slides/Envoycon2019_10GBMemory.pdf) | [Contour](https://projectcontour.io/) | [GitHub](https://github.com/projectcontour/contour) |
+| ----------------------------------- | ---------------------------------------------------- | ------------------------------------- | --------------------------------------------------- |
+
+* Speakers
+  * Steve Sloka, VMware
+
+Contour is an ingress controller for Kubernetes. It runs all traffic through
+Envoy. VMware found Contour was using very high levels of memory from what was
+expected and learned some interesting characteristics during their debugging. 
+
+Changes to Secrets (e.g. Certificates) caused updates to LDS. High rate of
+changes caused lots of old configurations that needed to be drained from
+listeners. Listeners had a default drain timeout of 600s and held onto memory
+during the drain.
+
+## Envoy Namespaces - Operating an Envoy-based Service Mesh at a Fraction of the Cost
+
+| [Background](https://sched.co/UxvY) | [Cilium](https://cilium.io/) | [GitHub](https://github.com/cilium/cilium) |
+| ----------------------------------- | ---------------------------- | ------------------------------------------ |
+
+* Speakers
+  * Thomas Graf, Cilium / Isovalent
+
+Cilium with Envoy via Sidecar pattern in Kubernetes.
+
+Shift to have one Envoy per Node, instead of per Pod, to alleviate scaling
+issues.
+
+The concept of "namespaces" for Envoy is to allow fair sharing of the Node
+Envoy across the client pods.
+
+Development is happening in SIG-Envoy.
+
+## Managing Tens of Thousands of Envoy: How We Do It
+
+| [Background](https://sched.co/WjiG) | [Link to slides](slides/AWSAppMesh_EnvoyCon.pdf) |
+| ----------------------------------- | ------------------------------------------------ |
+
+* Speakers
+  * Shubha Rao, AWS
+
+## Spanning the Globe with Envoy at Stripe
+
+| [Background](https://sched.co/Uxve) | [Links to slides](slides/dylan-carney-envoycon.pdf) |
+| ----------------------------------- | --------------------------------------------------- |
+
+* Speakers
+  * Dylan Carney, Stripe
+
+Stripe is a technology company that builds economic infrastructure for the
+internet.
+
+TLS negotiation is expensive, especially when client and server are physically
+far from each other over the internet. To solve this, they employ Envoy near
+clients around the world and their servers in the US for mTLS and HTTP/2.
+HTTP/2 in particular is useful for multiplexing requests over a single TCP
+connection.
+
+They use blue/green deployments, where traditionally 100% of traffic goes to
+one deployment, and components can be upgraded on the other before cutting
+clients over.  With Envoy, they can route a certain percentage of traffic
+across both environments to prevent issues from client-side DNS caching. They
+can also route requests away from bad hardware/software deployments while they
+remediate.
+
+## From Microbenchmarks to HTTP2 Load-testing: 5 Performance Tools and Techniques to Improve Envoy Scalability
+
+| [Background](https://sched.co/Uxvn) | [Links to slides](slides/EnvoyCon_Perf_Tools_2019_v1.pdf) | [Google Benchmark GitHub](https://github.com/google/benchmark) | [Nighthawk GitHub](https://github.com/envoyproxy/nighthawk) |
+| ----------------------------------- | --------------------------------------------------------- | -------------------------------------------------------------- | ----------------------------------------------------------- |
+
+* Speakers:
+  * Joshua Marantz, Google
+  * Otto van der Schaaf, We-Amp B.V.
+
+Information-packed presentation with a lot more details in the slides.
+
+They added C++ macros to enable performance monitoring and found a lot of time
+was being spent in regular expression matching misses.
+
+They also designed an HTTP load generator called `Nighthawk` to evaluate Envoy
+performance.
+
+They also used fuzz testing techniques to find performance and security issues
+with Envoy, however the fuzz testing is slow to run.
