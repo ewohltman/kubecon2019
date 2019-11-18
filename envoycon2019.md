@@ -21,8 +21,8 @@ code reviews, documentation, etc.
 
 ## How Spotify Migrated Ingress HTTP Systems to Envoy
 
-| [Background](https://sched.co/Uxv2) | [Link to slides](slides/atc_envoycon_2019.pdf) |
-| ----------------------------------- | ---------------------------------------------- |
+| [Background](https://sched.co/Uxv2) | [Slides](slides/atc_envoycon_2019.pdf) |
+| ----------------------------------- | -------------------------------------- |
 
 * Speakers
   * Alex Sundström, Spotify
@@ -49,7 +49,7 @@ provides for backend services, to their mobile platform/application. The idea
 is to treat mobile devices like any other node in a network topology.
 
 To accomplish this across multiple mobile platforms, they went to change Envoy
-into a library rather than just a single process.  This would allow for
+into a library rather than just a single process. This would allow for
 standardization across all platforms, with common tooling for common problems,
 and reduced cognitive load.
 
@@ -74,8 +74,8 @@ dynamic configuration.
  
 ## Envoy’s Using 10GB of Memory and It’s All My Fault!
 
-| [Background](https://sched.co/UxvT) | [Link to slides](slides/Envoycon2019_10GBMemory.pdf) | [Contour](https://projectcontour.io/) | [GitHub](https://github.com/projectcontour/contour) |
-| ----------------------------------- | ---------------------------------------------------- | ------------------------------------- | --------------------------------------------------- |
+| [Background](https://sched.co/UxvT) | [Slides](slides/Envoycon2019_10GBMemory.pdf) | [Contour](https://projectcontour.io/) | [GitHub](https://github.com/projectcontour/contour) |
+| ----------------------------------- | -------------------------------------------- | ------------------------------------- | --------------------------------------------------- |
 
 * Speakers
   * Steve Sloka, VMware
@@ -109,16 +109,16 @@ Development is happening in SIG-Envoy.
 
 ## Managing Tens of Thousands of Envoy: How We Do It
 
-| [Background](https://sched.co/WjiG) | [Link to slides](slides/AWSAppMesh_EnvoyCon.pdf) |
-| ----------------------------------- | ------------------------------------------------ |
+| [Background](https://sched.co/WjiG) | [Slides](slides/AWSAppMesh_EnvoyCon.pdf) |
+| ----------------------------------- | ---------------------------------------- |
 
 * Speakers
   * Shubha Rao, AWS
 
 ## Spanning the Globe with Envoy at Stripe
 
-| [Background](https://sched.co/Uxve) | [Links to slides](slides/dylan-carney-envoycon.pdf) |
-| ----------------------------------- | --------------------------------------------------- |
+| [Background](https://sched.co/Uxve) | [Slides](slides/dylan-carney-envoycon.pdf) |
+| ----------------------------------- | ------------------------------------------ |
 
 * Speakers
   * Dylan Carney, Stripe
@@ -134,15 +134,15 @@ connection.
 
 They use blue/green deployments, where traditionally 100% of traffic goes to
 one deployment, and components can be upgraded on the other before cutting
-clients over.  With Envoy, they can route a certain percentage of traffic
+clients over. With Envoy, they can route a certain percentage of traffic
 across both environments to prevent issues from client-side DNS caching. They
 can also route requests away from bad hardware/software deployments while they
 remediate.
 
 ## From Microbenchmarks to HTTP2 Load-testing: 5 Performance Tools and Techniques to Improve Envoy Scalability
 
-| [Background](https://sched.co/Uxvn) | [Links to slides](slides/EnvoyCon_Perf_Tools_2019_v1.pdf) | [Google Benchmark GitHub](https://github.com/google/benchmark) | [Nighthawk GitHub](https://github.com/envoyproxy/nighthawk) |
-| ----------------------------------- | --------------------------------------------------------- | -------------------------------------------------------------- | ----------------------------------------------------------- |
+| [Background](https://sched.co/Uxvn) | [Slides](slides/EnvoyCon_Perf_Tools_2019_v1.pdf) | [Google Benchmark GitHub](https://github.com/google/benchmark) | [Nighthawk GitHub](https://github.com/envoyproxy/nighthawk) |
+| ----------------------------------- | ------------------------------------------------ | -------------------------------------------------------------- | ----------------------------------------------------------- |
 
 * Speakers:
   * Joshua Marantz, Google
@@ -161,15 +161,15 @@ with Envoy, however the fuzz testing is slow to run.
 
 ## Service Mesh in Kubernetes: It’s Not That Easy
 
-| [Background](https://sched.co/Uxvo) | [Links to slides](slides/EnvoyCon_2019_Lita_Tom.pdf) |
-| ----------------------------------- | ---------------------------------------------------- |
+| [Background](https://sched.co/Uxvo) | [Slides](slides/EnvoyCon_2019_Lita_Tom.pdf) |
+| ----------------------------------- | ------------------------------------------- |
 
 * Speakers
   * Lita Cho, Lyft
   * Tom Wanielista, Lyft
 
 Prior to Kubernetes adoption within Lyft, they implemented a means of service
-discovery on their existing infrastructure.  To help with their internal
+discovery on their existing infrastructure. To help with their internal
 migration to Kubernetes, they designed a control-plane mechanism that exists
 outside of Kubernetes to allow legacy infrastructure and Kubernetes deployments
 to continue to discover each other. This is accomplished by the control-plane
@@ -179,3 +179,40 @@ and the components reaching out to the control-plane to discover the services.
 They ran into issues with Kubernetes Pod scale up and down events, as well as
 the order of operations in which sidecars run, so they currently run a patched
 version of Kubernetes with some fixes they need.
+
+## Dynamic Request Routing With Envoy
+
+| [Background](https://sched.co/Uxvz) | [Slides](slides/Dynamic_Request_Routing_with_Envoy.pdf) |
+| ----------------------------------- | ------------------------------------------------------- |
+
+* Speakers
+  * Ben Plotnick, Cruise
+
+By using request headers, the request can be routed to a particular instance of
+a service. This could be useful for testing a new version of a service in a
+real-world "production" environment.
+
+## Building Low Latency Topologies with Envoy
+
+| [Background](https://sched.co/Uxw0) | [Slides](slides/Building_Low_Latency_Topologies_with_Envoy.pdf) | [Istio](https://istio.io/) | [GitHub](https://github.com/istio/istio) |
+| ----------------------------------- | --------------------------------------------------------------- | -------------------------- | ---------------------------------------- |
+
+* Speakers
+  * John Howard, Google
+  * Snow Petterson, Square
+  * Liam White, Tetrate
+
+The goal here is to keep as much traffic within the same locality/availability
+zone to improve responsiveness from reduced latency and to save costs from
+egress traffic across regions. They implement this idea using a load balancing
+algorithm to select services within a region, but allowing fail-over into other
+regions based upon priorities.
+
+Istio and Square implement locality-aware load balancing, but in different
+ways.
+
+There are still some caveats to using this approach, namely it could be
+possible to be in the position with an uneven distribution of load. that could
+potentially increase latency by overloading a particular region and wasting
+money on the under-utilized regions. Health checks can also be tricky, e.g.
+missing health checks may not necessarily mean failing health checks.
