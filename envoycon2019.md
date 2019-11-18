@@ -216,3 +216,127 @@ possible to be in the position with an uneven distribution of load. that could
 potentially increase latency by overloading a particular region and wasting
 money on the under-utilized regions. Health checks can also be tricky, e.g.
 missing health checks may not necessarily mean failing health checks.
+
+## Overview of Authentication and Authorization Features in Envoy
+
+| [Background](https://sched.co/UxwB) | [Slides](slides/Overview_of_Authentication_and_Authorization_Features_in_Envoy.pdf) |
+| ----------------------------------- | ----------------------------------------------------------------------------------- |
+
+* Speakers
+  * Wayne Zhang, Google
+  * Yangmin Zhu, Google
+
+There are three authorization filters covered for various use-cases, and can be
+used together or independently:
+ 
+* `jwt_authn` Envoy filter for JWT token
+* `RBAC` filer for authorization inside of Envoy
+* `ext_authz` filter for authorization outside of Envoy
+
+Sample `jwt_authn` config:
+
+```yaml
+providers:
+  provider_name1:
+    issuer: https://example.com
+    audiences:
+      - bookstore_android.apps.googleusercontent.com
+    remote_jwks:
+      http_uri:
+        uri: https://example.com/jwks.json
+      cluster: example_jwks_cluster
+  provider_name2:
+    issuer: https://example2.com
+    local_jwks:
+      inline_string: PUBLIC-KEY
+    from_headers:
+      - name: jwt-assertion
+    forward: true
+    forward_payload_header: x-jwt-payload
+rules:
+  # /health doesn’t require verification
+  - match:
+      prefix: /health
+  # /api paths use provider_name1 jwt
+  - match:
+      prefix: /api
+    requires:
+      provider_and_audiences:
+        provider_name: provider_name1
+        audiences:
+          Api_audience
+  # all other paths use provider_name2 jwt
+  - match:
+      prefix: /
+    requires:
+      provider_name: provider_name2
+```
+
+
+Sample `RBAC` config:
+
+```yaml
+action: ALLOW
+policies:
+  "product-viewer":
+    permissions:
+      - and_rules:
+        rules:
+          - header: { name: ":method", exact_match: "GET" }
+          - header: { name: ":path", prefix_match: "/admin" }
+          - destination_port: 80
+    principals:
+      - or_ids:
+        ids:
+          - authenticated:
+            principal_name:
+              exact: "production"
+          - metadata:
+              filter: envoy.filters.http.jwt_authn
+              path:
+                - key: https://example.com
+                - key: sub
+              value:
+                string_match:
+                  exact: admin
+```
+
+Sample `ext_authz` config:
+
+```yaml
+http_filters:
+  - name: envoy.ext_authz
+    config:
+      http_service:
+        server_uri:
+          uri: 127.0.0.1:10003
+          cluster: ext-authz
+          timeout: 0.25s
+          failure_mode_allow: false
+          metadata_context_namespaces:
+            - envoy.filters.http.jwt_authn
+clusters:
+  - name: ext-authz
+    connect_timeout: 0.25s
+    type: logical_dns
+    lb_policy: round_robin
+    load_assignment:
+      cluster_name: ext-authz
+      endpoints:
+        - # Omitted
+    tls_context:
+    # Omitted
+```
+
+## Graph-based ML Anomaly Detection and Insights for Envoy Systems
+
+| [Background](https://sched.co/UxwI) | [Slides](slides/Graph-Based-ML-Anomaly-Detection-and-Insights.pdf) | [Grano](http://granoproject.org/) |
+| ----------------------------------- | ------------------------------------------------------------------ | --------------------------------- |
+
+* Speakers
+  * Anoop Koloth, eBay
+  * Hanzhang Wang, eBay
+
+They used metrics from Envoy with Grano for machine-learning anomaly detection
+to determine if there is bots/attacks occurring, perform traffic analysis, and
+make decisions for scaling.
