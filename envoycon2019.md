@@ -158,3 +158,24 @@ performance.
 
 They also used fuzz testing techniques to find performance and security issues
 with Envoy, however the fuzz testing is slow to run.
+
+## Service Mesh in Kubernetes: It’s Not That Easy
+
+| [Background](https://sched.co/Uxvo) | [Links to slides](slides/EnvoyCon_2019_Lita_Tom.pdf) |
+| ----------------------------------- | ----------------------------------------------------- |
+
+* Speakers
+  * Lita Cho, Lyft
+  * Tom Wanielista, Lyft
+
+Prior to Kubernetes adoption within Lyft, they implemented a means of service
+discovery on their existing infrastructure.  To help with their internal
+migration to Kubernetes, they designed a control-plane mechanism that exists
+outside of Kubernetes to allow legacy infrastructure and Kubernetes deployments
+to continue to discover each other. This is accomplished by the control-plane
+watching for events from `apiserver` for the components moved into Kubernetes
+and the components reaching out to the control-plane to discover the services.
+
+They ran into issues with Kubernetes Pod scale up and down events, as well as
+the order of operations in which sidecars run, so they currently support a
+specific branch of Kubernetes with some fixes they need.
