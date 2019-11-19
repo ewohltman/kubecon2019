@@ -349,4 +349,36 @@ make decisions for scaling.
 **Speakers**
 * Harvey Tuch, Google
 
-Envoy can be configured via `xDS` (a `gRPC` API)
+Envoy can be configured via `xDS` (a `gRPC` API). It currently supports
+multiple versions of the API, which because of a backwards-compatibility
+guarantee, is carry some tech debt they would like to pay down.
+
+Going forward, API releases will become more defined - including deprecation
+and removal of older API version support.
+
+By 2020, they plan on taking their `xDS` API to Universal Dataplane API (UDPA).
+
+## Livin' on the Edge (of your cluster)
+
+| [Background](https://sched.co/X1Mw) | [Contour](https://projectcontour.io/) | [GitHub](https://github.com/projectcontour/contour) |
+| ----------------------------------- | ------------------------------------- | --------------------------------------------------- |
+
+**Speakers**
+* Nick Young, VMWare
+
+Lightning talk about Contour being a Kubernetes Ingress Controller.
+
+## Evolution of Envoy as a Dynamic Redis Proxy
+
+| [Background](https://sched.co/UxwT) | [Slides](slides/EnvoyCon2019.pdf) |
+| ----------------------------------- | ----------------------------------------------------------------------------------- |
+
+**Speakers**
+* Nicolas Flacco, Lyft
+* Henry Yang, Lyft
+* Mitch Sulaski, Workday
+
+Redis Proxy is a simple Redis client using Envoy. It provides a single point of
+abstraction to work with a Redis instance(s) or Redis Cluster. It maintains a
+connection pool to the Redis instance(s) on behalf of the client, as well as
+provide load balancing.
