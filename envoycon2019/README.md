@@ -37,8 +37,8 @@ a "big red button" to roll back changes that anyone could hit.
 
 ## Envoy Mobile in Depth: From Server to Multi-platform Library
 
-| [Background](https://sched.co/UxvS) | [Envoy Mobile](https://envoy-mobile.github.io/) | [GitHub](https://github.com/lyft/envoy-mobile) |
-| ----------------------------------- | ----------------------------------------------- | ---------------------------------------------- |
+| [Background](https://sched.co/UxvS) | [Slides](slides/EnvoyMobile-EnvoyCon2019.pdf) | [Envoy Mobile](https://envoy-mobile.github.io/) | [GitHub](https://github.com/lyft/envoy-mobile) |
+| ----------------------------------- | --------------------------------------------- |  ----------------------------------------------- | ---------------------------------------------- |
 
 **Speakers**
 * Jose Nino, Lyft
