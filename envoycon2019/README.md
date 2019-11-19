@@ -394,3 +394,38 @@ provide load balancing.
 The Tap filter for Envoy is a powerful tool because it can capture entire
 request and response headers and bodies when a provided match criteria is met.
 This can be useful for debugging issues that can be hard to troubleshoot.
+
+## Making Envoy Sustainable
+
+| [Background](https://sched.co/Uxwf) | [Slides](slides/pdf-sustainability.pdf) |
+| ----------------------------------- | --------------------------------------- |
+
+**Speakers**
+* Cynthia Coan, Datawire
+
+Clients have a lot going on and may not always have the time to upgrade to
+newer versions of your API, libraries, and products as fast as you would like
+to release updates. Additionally, communicating breaking changes can be
+challenging and/or problematic. SemVer can go wrong without accounting for the
+context of your clients.
+
+How to fix this? You should communicate with you clients and make your upgrade
+process super easy. Document more than your public API, and test everything.
+If you have an agreement with a client for a technical detail, make sure you
+write a test to ensure that agreement remains fulfilled. Invest seriously in
+making sure your API is followed properly. If you can't do these things, give
+your client time.
+
+Tech debt affects more than you, and every bit of tech debt adds complexity.
+When planning something out, "keep it boring" and follow the
+[YAGNI](https://www.martinfowler.com/bliki/Yagni.html) principle to prevent
+accumulation of tech debt.
+
+Your team's image and reputation is very important to have a successful
+relationship with your clients, and to keep them onboard with embracing
+changes.
+
+Every new feature needs something like a Definition of Ready and Definition of
+Done. Use a linter to automate code reviews and enforce best practices. Keep
+meeting heavy days to a single day per week to avoid daily/frequent context
+switching. Constantly develop of master and your CI process should use master.
