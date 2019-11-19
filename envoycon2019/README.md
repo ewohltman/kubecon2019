@@ -388,7 +388,7 @@ provides load balancing.
 
 ## Solving Microservice Murder Mysteries with Envoy's Tap Filter
 
-| [Background](https://sched.co/Uxwa) | [Slides](slides/Solving_Microservice MysteriesStatic_v2.pdf) |
+| [Background](https://sched.co/Uxwa) | [Slides](slides/Solving_Microservice_MysteriesStatic_v2.pdf) |
 | ----------------------------------- | ------------------------------------------------------------ |
 
 **Speakers**
