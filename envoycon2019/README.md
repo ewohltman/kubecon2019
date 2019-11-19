@@ -8,8 +8,8 @@
 **Speakers**
 * Matt Klein, Lyft
 
-Envoy is a extensible proxy with many other products are built upon it. Envoy
-was built with a very rapid velocity, but needs to transition into a more
+Envoy is an extensible proxy with many other products built upon it. Envoy was
+created with a very rapid velocity, but needs to transition into a more
 sustainable, long-term approach for future growth.
 
 Envoy recognizes that its API is the most important part, and that the proxy is
@@ -29,8 +29,8 @@ code reviews, documentation, etc.
 * Erik Lindblad, Spotify
 * Kateryna Nezdolii, Spotify
 
-They migrated to Envoy in their "perimeter", i.e. they line between the
-internet and their internal services.
+They migrated to Envoy in their "perimeter" between the internet and their
+internal services.
 
 They learned a lot in migration effort, in particular how useful it was to have
 a "big red button" to roll back changes that anyone could hit.
@@ -44,22 +44,22 @@ a "big red button" to roll back changes that anyone could hit.
 * Jose Nino, Lyft
 * Michael Schore, Lyft
 
-Why Envoy on mobile? Lyft is looking to extent all of the benefits that Envoy
-provides for backend services, to their mobile platform/application. The idea
+Why Envoy on mobile? Lyft is looking to extend all of the benefits that Envoy
+provides for backend services, to their mobile platforms/application. The idea
 is to treat mobile devices like any other node in a network topology.
 
 To accomplish this across multiple mobile platforms, they went to change Envoy
 into a library rather than just a single process. This would allow for
-standardization across all platforms, with common tooling for common problems,
-and reduced cognitive load.
+standardization across all platforms, common tooling for common problems, and
+reducing cognitive load.
 
 Designing a mobile approach meant including support for many different
-languages. For example, Envoy is C++, Android is Kotlin, iOS is Swift, C
+languages. For example, Envoy is C++, Android is Kotlin, iOS is Swift, and C
 bindings as a common bridge across them all. The multithreading design required
 a significant amount of thinking, not just about how to convert the existing
-Envoy multithreaded process into a thread that can be run by another program as
-a library, as well as how to allow native handling of threads and callbacks
-across platforms.
+Envoy multithreaded process into a thread that can be run from another program,
+but also how to allow native handling of threads and callbacks across
+platforms.
 
 Another big advantage is gaining the observability that Envoy provides for
 mobile devices, something that was missing from their full picture of metrics
@@ -68,9 +68,9 @@ gathering.
 Going forward, they want to further refine Envoy Mobile as a drop-in replacement
 for other platform-specific implementations. They also want to explore protocol
 experimentations, intelligent network behavior (health checks/load balancing,
-as well as across interfaces like choosing between wifi/cell networks,
-protocols, and IPv4 vs IPv6 for best performance). They also want to implement
-dynamic configuration.
+as well as switching across interfaces like choosing between wifi/cell
+networks, protocols, and IPv4 vs IPv6 for best performance). They also want to
+implement dynamic configuration.
  
 ## Envoy’s Using 10GB of Memory and It’s All My Fault!
 
@@ -115,6 +115,9 @@ Development is happening in SIG-Envoy.
 **Speakers**
 * Shubha Rao, AWS
 
+Presentation of AWS architecture for how they manage large volumes of Envoy
+instances.
+
 ## Spanning the Globe with Envoy at Stripe
 
 | [Background](https://sched.co/Uxve) | [Slides](slides/dylan-carney-envoycon.pdf) |
@@ -156,8 +159,8 @@ was being spent in regular expression matching misses.
 They also designed an HTTP load generator called `Nighthawk` to evaluate Envoy
 performance.
 
-They also used fuzz testing techniques to find performance and security issues
-with Envoy, however the fuzz testing is slow to run.
+Additionally they used fuzz testing techniques to find performance and security
+issues with Envoy, however the fuzz testing is slow to run.
 
 ## Service Mesh in Kubernetes: It’s Not That Easy
 
@@ -212,7 +215,7 @@ Istio and Square implement locality-aware load balancing, but in different
 ways.
 
 There are still some caveats to using this approach, namely it could be
-possible to be in the position with an uneven distribution of load. that could
+possible to be in the position with an uneven distribution of load. That could
 potentially increase latency by overloading a particular region and wasting
 money on the under-utilized regions. Health checks can also be tricky, e.g.
 missing health checks may not necessarily mean failing health checks.
@@ -338,8 +341,8 @@ clusters:
 * Hanzhang Wang, eBay
 
 They used metrics from Envoy with Grano for machine-learning anomaly detection
-to determine if there is bots/attacks occurring, perform traffic analysis, and
-make decisions for scaling.
+to determine if there are bots/attacks hitting their services, perform traffic
+analysis, and make decisions for scaling.
 
 ## The Universal Dataplane API (UDPA): Envoy's Next Generation APIs
 
@@ -351,7 +354,7 @@ make decisions for scaling.
 
 Envoy can be configured via `xDS` (a `gRPC` API). It currently supports
 multiple versions of the API, which because of a backwards-compatibility
-guarantee, is carry some tech debt they would like to pay down.
+guarantee, carries some tech debt they would like to pay down.
 
 Going forward, API releases will become more defined - including deprecation
 and removal of older API version support.
@@ -379,9 +382,9 @@ Lightning talk about Contour being a Kubernetes Ingress Controller.
 * Mitch Sulaski, Workday
 
 Redis Proxy is a simple Redis client using Envoy. It provides a single point of
-abstraction to work with a Redis instance(s) or Redis Cluster. It maintains a
+abstraction to work with Redis instance(s) or Redis Cluster. It maintains a
 connection pool to the Redis instance(s) on behalf of the client, as well as
-provide load balancing.
+provides load balancing.
 
 ## Solving Microservice Murder Mysteries with Envoy's Tap Filter
 
@@ -422,7 +425,7 @@ When planning something out, "keep it boring" and follow the
 accumulation of tech debt.
 
 Your team's image and reputation is very important to have a successful
-relationship with your clients, and to keep them onboard with embracing
+relationship with your clients, and to keep them onboard with embracing your
 changes.
 
 Every new feature needs something like a Definition of Ready and Definition of
