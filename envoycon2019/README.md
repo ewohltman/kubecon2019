@@ -371,7 +371,7 @@ Lightning talk about Contour being a Kubernetes Ingress Controller.
 ## Evolution of Envoy as a Dynamic Redis Proxy
 
 | [Background](https://sched.co/UxwT) | [Slides](slides/EnvoyCon2019.pdf) |
-| ----------------------------------- | ----------------------------------------------------------------------------------- |
+| ----------------------------------- | --------------------------------- |
 
 **Speakers**
 * Nicolas Flacco, Lyft
@@ -382,3 +382,15 @@ Redis Proxy is a simple Redis client using Envoy. It provides a single point of
 abstraction to work with a Redis instance(s) or Redis Cluster. It maintains a
 connection pool to the Redis instance(s) on behalf of the client, as well as
 provide load balancing.
+
+## Solving Microservice Murder Mysteries with Envoy's Tap Filter
+
+| [Background](https://sched.co/Uxwa) | [Slides](slides/Solving_Microservice MysteriesStatic_v2.pdf) |
+| ----------------------------------- | ------------------------------------------------------------ |
+
+**Speakers**
+* Mitch Kelley, Solo.io
+
+The Tap filter for Envoy is a powerful tool because it can capture entire
+request and response headers and bodies when a provided match criteria is met.
+This can be useful for debugging issues that can be hard to troubleshoot.
