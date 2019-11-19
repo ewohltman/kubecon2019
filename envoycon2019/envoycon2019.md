@@ -340,3 +340,13 @@ clusters:
 They used metrics from Envoy with Grano for machine-learning anomaly detection
 to determine if there is bots/attacks occurring, perform traffic analysis, and
 make decisions for scaling.
+
+## The Universal Dataplane API (UDPA): Envoy's Next Generation APIs
+
+| [Background](https://sched.co/UxwL) |
+| ----------------------------------- |
+
+* Speakers
+  * Harvey Tuch, Google
+
+Envoy can be configured via `xDS` (a `gRPC` API)
