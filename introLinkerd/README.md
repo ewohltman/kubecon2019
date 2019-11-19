@@ -49,6 +49,7 @@ In short, "do less, not more".
 * Simple
   * Reduce operational complexity in every possible way
 
+Components:
 
 * Control plane
   * Go. ~200mb RSS (excluding metrics data)
