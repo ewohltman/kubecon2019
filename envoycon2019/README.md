@@ -5,8 +5,8 @@
 | [Background](https://sched.co/UxvJ) |
 | ----------------------------------- |
 
-* Speakers
-  * Matt Klein, Lyft
+**Speakers**
+* Matt Klein, Lyft
 
 Envoy is a extensible proxy with many other products are built upon it. Envoy
 was built with a very rapid velocity, but needs to transition into a more
@@ -24,10 +24,10 @@ code reviews, documentation, etc.
 | [Background](https://sched.co/Uxv2) | [Slides](slides/atc_envoycon_2019.pdf) |
 | ----------------------------------- | -------------------------------------- |
 
-* Speakers
-  * Alex Sundström, Spotify
-  * Erik Lindblad, Spotify
-  * Kateryna Nezdolii, Spotify
+**Speakers**
+* Alex Sundström, Spotify
+* Erik Lindblad, Spotify
+* Kateryna Nezdolii, Spotify
 
 They migrated to Envoy in their "perimeter", i.e. they line between the
 internet and their internal services.
@@ -40,9 +40,9 @@ a "big red button" to roll back changes that anyone could hit.
 | [Background](https://sched.co/UxvS) | [Envoy Mobile](https://envoy-mobile.github.io/) | [GitHub](https://github.com/lyft/envoy-mobile) |
 | ----------------------------------- | ----------------------------------------------- | ---------------------------------------------- |
 
-* Speakers
-  * Jose Nino, Lyft
-  * Michael Schore, Lyft
+**Speakers**
+* Jose Nino, Lyft
+* Michael Schore, Lyft
 
 Why Envoy on mobile? Lyft is looking to extent all of the benefits that Envoy
 provides for backend services, to their mobile platform/application. The idea
@@ -77,8 +77,8 @@ dynamic configuration.
 | [Background](https://sched.co/UxvT) | [Slides](slides/Envoycon2019_10GBMemory.pdf) | [Contour](https://projectcontour.io/) | [GitHub](https://github.com/projectcontour/contour) |
 | ----------------------------------- | -------------------------------------------- | ------------------------------------- | --------------------------------------------------- |
 
-* Speakers
-  * Steve Sloka, VMware
+**Speakers**
+* Steve Sloka, VMware
 
 Contour is an ingress controller for Kubernetes. It runs all traffic through
 Envoy. VMware found Contour was using very high levels of memory from what was
@@ -94,8 +94,8 @@ during the drain.
 | [Background](https://sched.co/UxvY) | [Cilium](https://cilium.io/) | [GitHub](https://github.com/cilium/cilium) |
 | ----------------------------------- | ---------------------------- | ------------------------------------------ |
 
-* Speakers
-  * Thomas Graf, Cilium / Isovalent
+**Speakers**
+* Thomas Graf, Cilium / Isovalent
 
 Cilium with Envoy via Sidecar pattern in Kubernetes.
 
@@ -112,16 +112,16 @@ Development is happening in SIG-Envoy.
 | [Background](https://sched.co/WjiG) | [Slides](slides/AWSAppMesh_EnvoyCon.pdf) |
 | ----------------------------------- | ---------------------------------------- |
 
-* Speakers
-  * Shubha Rao, AWS
+**Speakers**
+* Shubha Rao, AWS
 
 ## Spanning the Globe with Envoy at Stripe
 
 | [Background](https://sched.co/Uxve) | [Slides](slides/dylan-carney-envoycon.pdf) |
 | ----------------------------------- | ------------------------------------------ |
 
-* Speakers
-  * Dylan Carney, Stripe
+**Speakers**
+* Dylan Carney, Stripe
 
 Stripe is a technology company that builds economic infrastructure for the
 internet.
@@ -144,9 +144,9 @@ remediate.
 | [Background](https://sched.co/Uxvn) | [Slides](slides/EnvoyCon_Perf_Tools_2019_v1.pdf) | [Google Benchmark GitHub](https://github.com/google/benchmark) | [Nighthawk GitHub](https://github.com/envoyproxy/nighthawk) |
 | ----------------------------------- | ------------------------------------------------ | -------------------------------------------------------------- | ----------------------------------------------------------- |
 
-* Speakers:
-  * Joshua Marantz, Google
-  * Otto van der Schaaf, We-Amp B.V.
+**Speakers**
+* Joshua Marantz, Google
+* Otto van der Schaaf, We-Amp B.V.
 
 Information-packed presentation with a lot more details in the slides.
 
@@ -164,9 +164,9 @@ with Envoy, however the fuzz testing is slow to run.
 | [Background](https://sched.co/Uxvo) | [Slides](slides/EnvoyCon_2019_Lita_Tom.pdf) |
 | ----------------------------------- | ------------------------------------------- |
 
-* Speakers
-  * Lita Cho, Lyft
-  * Tom Wanielista, Lyft
+**Speakers**
+* Lita Cho, Lyft
+* Tom Wanielista, Lyft
 
 Prior to Kubernetes adoption within Lyft, they implemented a means of service
 discovery on their existing infrastructure. To help with their internal
@@ -185,8 +185,8 @@ version of Kubernetes with some fixes they need.
 | [Background](https://sched.co/Uxvz) | [Slides](slides/Dynamic_Request_Routing_with_Envoy.pdf) |
 | ----------------------------------- | ------------------------------------------------------- |
 
-* Speakers
-  * Ben Plotnick, Cruise
+**Speakers**
+* Ben Plotnick, Cruise
 
 By using request headers, the request can be routed to a particular instance of
 a service. This could be useful for testing a new version of a service in a
@@ -197,10 +197,10 @@ real-world "production" environment.
 | [Background](https://sched.co/Uxw0) | [Slides](slides/Building_Low_Latency_Topologies_with_Envoy.pdf) | [Istio](https://istio.io/) | [GitHub](https://github.com/istio/istio) |
 | ----------------------------------- | --------------------------------------------------------------- | -------------------------- | ---------------------------------------- |
 
-* Speakers
-  * John Howard, Google
-  * Snow Petterson, Square
-  * Liam White, Tetrate
+**Speakers**
+* John Howard, Google
+* Snow Petterson, Square
+* Liam White, Tetrate
 
 The goal here is to keep as much traffic within the same locality/availability
 zone to improve responsiveness from reduced latency and to save costs from
@@ -222,9 +222,9 @@ missing health checks may not necessarily mean failing health checks.
 | [Background](https://sched.co/UxwB) | [Slides](slides/Overview_of_Authentication_and_Authorization_Features_in_Envoy.pdf) |
 | ----------------------------------- | ----------------------------------------------------------------------------------- |
 
-* Speakers
-  * Wayne Zhang, Google
-  * Yangmin Zhu, Google
+**Speakers**
+* Wayne Zhang, Google
+* Yangmin Zhu, Google
 
 There are three authorization filters covered for various use-cases, and can be
 used together or independently:
@@ -247,7 +247,7 @@ providers:
       cluster: example_jwks_cluster
   provider_name2:
     issuer: https://example2.com
-    local_jwks:
+    local_jwks:*S
       inline_string: PUBLIC-KEY
     from_headers:
       - name: jwt-assertion
@@ -333,9 +333,9 @@ clusters:
 | [Background](https://sched.co/UxwI) | [Slides](slides/Graph-Based-ML-Anomaly-Detection-and-Insights.pdf) | [Grano](http://granoproject.org/) |
 | ----------------------------------- | ------------------------------------------------------------------ | --------------------------------- |
 
-* Speakers
-  * Anoop Koloth, eBay
-  * Hanzhang Wang, eBay
+**Speakers**
+* Anoop Koloth, eBay
+* Hanzhang Wang, eBay
 
 They used metrics from Envoy with Grano for machine-learning anomaly detection
 to determine if there is bots/attacks occurring, perform traffic analysis, and
@@ -346,7 +346,7 @@ make decisions for scaling.
 | [Background](https://sched.co/UxwL) |
 | ----------------------------------- |
 
-* Speakers
-  * Harvey Tuch, Google
+**Speakers**
+* Harvey Tuch, Google
 
 Envoy can be configured via `xDS` (a `gRPC` API)
