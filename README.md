@@ -6,3 +6,4 @@ Notes from KubeCon and EnvoyCon 2019.
 * [Containing the Container: Developer Experience vs Strict Security Posture](containingTheContainer/README.md)
 * [Take Envoy Beyond a K8s Service Mesh - to Legacy Bare Metal and VMs + More](envoyBeyondServiceMesh/README.md)
 * [Intro: Linkerd](introLinkerd/README.md)
+* [Admission Webhooks: Configuration and Debugging Best Practices](admissionWebhooks/README.md)
