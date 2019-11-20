@@ -9,3 +9,4 @@ Notes from KubeCon and EnvoyCon 2019.
 * [Admission Webhooks: Configuration and Debugging Best Practices](admissionWebhooks/README.md)
 * [Making an Internal Kubernetes Offering Generally Available](makingKubernetesGenerallyAvailable/README.md)
 * [Are You About to Break Prod? Acceptance Testing with Ephemeral Environments](acceptanceTestingEphemeralEnvironments/README.md)
+* [Deep Dive Into API Machinery](apiMachineryDeepDive/README.md)
