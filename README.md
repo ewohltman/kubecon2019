@@ -10,3 +10,4 @@ Notes from KubeCon and EnvoyCon 2019.
 * [Making an Internal Kubernetes Offering Generally Available](makingKubernetesGenerallyAvailable/README.md)
 * [Are You About to Break Prod? Acceptance Testing with Ephemeral Environments](acceptanceTestingEphemeralEnvironments/README.md)
 * [Deep Dive Into API Machinery](apiMachineryDeepDive/README.md)
+* [Writing a Kubernetes Operator: the Hard Parts](operatorHardParts/README.md)
