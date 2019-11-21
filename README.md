@@ -12,3 +12,4 @@ Notes from KubeCon and EnvoyCon 2019.
 * [Deep Dive Into API Machinery](apiMachineryDeepDive/README.md)
 * [Writing a Kubernetes Operator: the Hard Parts](operatorHardParts/README.md)
 * [Debugging Live Applications the Kubernetes Way: From a Sidecar](debuggingLiveApplications/README.md)
+* [Use Your Favorite Developer Tools in Kubernetes With Telepresence](devTools/README.md)
